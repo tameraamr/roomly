@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Registrati</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Registrati</h1>
+    <div class="card">
+        <form th:action="@{/registrati}" method="post">
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <button type="submit" class="btn btn-primary">Registrati</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

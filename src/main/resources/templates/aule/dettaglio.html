@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"/><title th:text="${aula.nome}"></title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1 th:text="${aula.nome}"></h1>
+    <p class="subtitle" th:text="${aula.sede.nome} + ' - ' + ${aula.capienza} + ' posti - ' + ${aula.dotazioni}"></p>
+
+    <a sec:authorize="isAuthenticated()" th:href="@{/prenotazioni/nuova(idAula=${aula.id})}" class="btn btn-primary">Prenota</a>
+    <p sec:authorize="!isAuthenticated()" class="text-muted"><a th:href="@{/login}" class="btn-link">Accedi</a> per prenotare.</p>
+
+    <h2>Recensioni</h2>
+    <div class="card" th:each="r : ${recensioni}">
+        <strong th:text="${r.utente.username}"></strong> - <span th:text="${r.voto} + '/5'"></span>
+        <p th:text="${r.testo}"></p>
+    </div>
+</div>
+</body>
+</html>

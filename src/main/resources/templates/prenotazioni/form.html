@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Prenota</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1 th:text="'Prenota: ' + ${aula.nome}"></h1>
+    <div class="card">
+        <form th:action="@{/prenotazioni/nuova}" method="post">
+            <input type="hidden" name="idAula" th:value="${aula.id}"/>
+            <label class="text-muted">Inizio</label>
+            <input type="datetime-local" name="dataInizio"/>
+            <label class="text-muted">Fine</label>
+            <input type="datetime-local" name="dataFine"/>
+            <button type="submit" class="btn btn-primary">Conferma prenotazione</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

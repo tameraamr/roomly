@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Le mie prenotazioni</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Le mie prenotazioni</h1>
+    <table>
+        <tr><th>Aula</th><th>Inizio</th><th>Fine</th><th>Stato</th><th></th></tr>
+        <tr th:each="p : ${prenotazioni}">
+            <td th:text="${p.aula.nome}"></td>
+            <td th:text="${#temporals.format(p.dataInizio, 'dd/MM/yyyy HH:mm')}"></td>
+            <td th:text="${#temporals.format(p.dataFine, 'dd/MM/yyyy HH:mm')}"></td>
+            <td><span class="badge" th:classappend="${p.stato.name() == 'CONFERMATA'} ? 'badge-scheduled' : 'badge-played'" th:text="${p.stato}"></span></td>
+            <td>
+                <form th:if="${p.stato.name() == 'CONFERMATA'}" th:action="@{/prenotazioni/{id}/annulla(id=${p.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn-link" style="background:none;border:none;cursor:pointer;">Annulla</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

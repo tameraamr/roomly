@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Roomly</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <link rel="icon" type="image/svg+xml" th:href="@{/images/logo.svg}"/>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <div class="hero" th:style="|background-image: url('@{/images/hero.png}')|">
+        <div class="hero-text">
+            <h1>Roomly</h1>
+            <p class="subtitle">Prenota aule studio e spazi coworking in pochi click.</p>
+            <a th:href="@{/aule}" class="btn btn-primary">Vedi aule</a>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${numSedi}"></div>
+            <div class="stat-label">Sedi disponibili</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${numAule}"></div>
+            <div class="stat-label">Aule prenotabili</div>
+        </div>
+    </div>
+
+    <h2>Come funziona</h2>
+    <div class="how-it-works">
+        <div class="how-card">
+            <div class="how-number">1</div>
+            <h3>Sfoglia le aule</h3>
+            <p class="text-muted">Consulta sedi, capienza e dotazioni di ogni spazio disponibile.</p>
+        </div>
+        <div class="how-card">
+            <div class="how-number">2</div>
+            <h3>Prenota in pochi click</h3>
+            <p class="text-muted">Scegli data e orario, la disponibilità è verificata in automatico.</p>
+        </div>
+        <div class="how-card">
+            <div class="how-number">3</div>
+            <h3>Lascia una recensione</h3>
+            <p class="text-muted">Racconta la tua esperienza dopo aver usato l'aula.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Nuova Sede</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Nuova Sede</h1>
+    <div class="card">
+        <form th:action="@{/admin/sedi/nuova}" th:object="${sede}" method="post">
+            <input type="text" th:field="*{nome}" placeholder="Nome"/>
+            <input type="text" th:field="*{indirizzo}" placeholder="Indirizzo"/>
+            <input type="text" th:field="*{citta}" placeholder="Città"/>
+            <button type="submit" class="btn btn-primary">Salva</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

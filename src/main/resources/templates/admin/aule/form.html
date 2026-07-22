@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Nuova Aula</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Nuova Aula</h1>
+    <div class="card">
+        <form th:action="@{/admin/aule/nuova}" method="post">
+            <input type="text" name="nome" placeholder="Nome aula"/>
+            <input type="number" name="capienza" placeholder="Capienza"/>
+            <input type="text" name="dotazioni" placeholder="Dotazioni (es. proiettore)"/>
+            <label class="text-muted">Sede</label>
+            <select name="idSede">
+                <option th:each="s : ${sedi}" th:value="${s.id}" th:text="${s.nome}"></option>
+            </select>
+            <button type="submit" class="btn btn-primary">Salva</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

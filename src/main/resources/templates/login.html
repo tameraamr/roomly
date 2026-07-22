@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Accedi</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Accedi</h1>
+    <div class="card">
+        <form th:action="@{/login}" method="post">
+            <p th:if="${param.error}" style="color: var(--danger);">Username o password non corretti.</p>
+            <input type="text" name="username" placeholder="Username"/>
+            <input type="password" name="password" placeholder="Password"/>
+            <button type="submit" class="btn btn-primary">Accedi</button>
+        </form>
+    </div>
+    <p class="text-muted">Non hai un account? <a th:href="@{/registrati}" class="btn-link">Registrati</a></p>
+</div>
+</body>
+</html>

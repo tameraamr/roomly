@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<div th:fragment="navbar" class="navbar">
+    <div class="navbar-inner">
+        <a th:href="@{/}" class="navbar-brand">
+            <img th:src="@{/images/logo.svg}" alt="Roomly logo"/>
+            Roomly
+        </a>
+        <div class="navbar-links">
+            <a th:href="@{/aule}">Aule</a>
+            <a sec:authorize="isAuthenticated()" th:href="@{/prenotazioni/mie}">Le mie prenotazioni</a>
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/sedi/nuova}">+ Sede</a>
+            <a sec:authorize="hasRole('ADMIN')" th:href="@{/admin/aule/nuova}">+ Aula</a>
+            <a sec:authorize="!isAuthenticated()" th:href="@{/login}">Accedi</a>
+            <a sec:authorize="!isAuthenticated()" th:href="@{/registrati}">Registrati</a>
+            <span sec:authorize="isAuthenticated()" sec:authentication="name" class="text-muted"></span>
+            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post" style="display:inline; margin:0;">
+                <button type="submit" class="btn-link" style="background:none; border:none; cursor:pointer; font:inherit;">Esci</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>Aule</title><link rel="stylesheet" th:href="@{/css/style.css}"/></head>
+<body>
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="container">
+    <h1>Aule disponibili</h1>
+    <table>
+        <tr><th>Nome</th><th>Sede</th><th>Capienza</th><th></th></tr>
+        <tr th:each="aula : ${aule}">
+            <td th:text="${aula.nome}"></td>
+            <td th:text="${aula.sede.nome}"></td>
+            <td th:text="${aula.capienza} + ' posti'"></td>
+            <td><a th:href="@{/aule/{id}(id=${aula.id})}" class="btn-link">Dettagli →</a></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
