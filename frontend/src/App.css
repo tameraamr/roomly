@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* { box-sizing: border-box; }
+
+.app-container {
+  font-family: 'Inter', -apple-system, sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  color: #14231c;
+}
+
+.app-container h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 0 0 16px;
+  border-left: 3px solid #14532d;
+  padding-left: 10px;
+}
+
+.app-select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #dde3de;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  margin-bottom: 20px;
+  background: white;
+  color: #14231c;
+}
+.app-select:focus {
+  outline: 2px solid #14532d;
+  outline-offset: -1px;
+}
+
+.app-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #dde3de;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(20, 35, 28, 0.05);
+}
+.app-table th, .app-table td {
+  padding: 13px 16px;
+  text-align: left;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #dde3de;
+}
+.app-table th {
+  background: #f5f6f4;
+  color: #5b6b62;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+.app-table tr:last-child td { border-bottom: none; }
+.app-table tr:first-child td { font-weight: 600; }
+.app-table tr:hover td { background: #fafafa; }

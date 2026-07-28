@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AulaService {
@@ -34,5 +35,12 @@ public class AulaService {
     public void eliminaAula(Long id) {
         Aula aula = aulaRepository.findById(id).orElseThrow();
         aulaRepository.delete(aula);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Aula> getAuleBySede(Long idSede) {
+        return aulaRepository.findAll().stream()
+                .filter(a -> a.getSede().getId().equals(idSede))
+                .collect(Collectors.toList());
     }
 }
